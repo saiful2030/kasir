@@ -20,7 +20,7 @@ cd /var/www/html
 Langkah 2 : Clone repository
 
 ```sh
-git clone https://github.com/saiful2030/ujian-online.git
+git clone https://github.com/saiful2030/kasir.git
 ```
 masuk ke link https://github.com/settings/tokens 
 kemudian klik button `generate new token`.
@@ -29,7 +29,7 @@ untuk `Note` silakan berikan nama token yang anda inginkan dan ini sifatnya beba
 Langkah 3 : Clone repository dengan token
 
 ```sh
-git clone https://username-kamu:token-kamu@github.com/saiful2030/ujian-online.git
+git clone https://username-kamu:token-kamu@github.com/saiful2030/kasir.git
 ```
 silakan ganti :
 1. `username-kamu` dengan username akun github
@@ -38,7 +38,7 @@ silakan ganti :
 Langkah 4 : Konfigurasi Project
 
 ```sh
-cd ujian-online
+cd kasir
 ```
 ```sh
 ls
@@ -89,7 +89,7 @@ sudo nano .env
 silakan ganti :
 1. `APP_ENV` menjadi `APP_ENV=production`
 2. `APP_DEBUD` menjadi `APP_DEBUG=false`
-3. `DB_DATABASE` menjadi `DB_DATABASE=db_ujian_online`
+3. `DB_DATABASE` menjadi `DB_DATABASE=db_inertia_pos`
 4. `DB_PASSWORD` menjadi `sesuai password yang anda seting`
 
 silakan simpan dengan `CTRL`+ `X` kemudian `Y` dan `ENTER`
@@ -109,7 +109,7 @@ sudo nano /etc/nginx/sites-available/default
 root /var/www/html;
 ```
 ```sh
-root /var/www/html/ujian-online/public;
+root /var/www/html/kasir/public;
 ```
 ```sh
 try_files $uri $uri/ =404;
@@ -120,7 +120,7 @@ try_files $uri $uri/ /index.php$is_args$args;
 
 ## Akun
 Username : admin@gmail.com
-Password : password
+Password : 12345678
 
 ## License
 
