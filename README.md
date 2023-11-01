@@ -1,63 +1,126 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Laravel merupakan framework PHP yang open-source dan berisi banyak modul dasar untuk mengoptimalkan kinerja PHP dalam pengembangan aplikasi web, apalagi PHP adalah bahasa pemrograman yang dinamis dan Laravel disini bisa bertindak untuk membuat web development lebih cepat, lebih aman, dan lebih simpel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## LEMP Stack
+LEMP stack adalah seperangkat aplikasi yang digunakan secara bersamaan untuk menjalankan web server. LEMP merupakan singkatan (akronim) dari Linux + Nginx + MySQL/MariaDB + PHP.
+Komfigurasi [LEMP](https://github.com/saiful2030/LEMP)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Clone Project Di Server
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Langkah 1 : Masuk ke direktori
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```sh
+cd /var/www/html
+```
+Langkah 2 : Clone repository
 
-## Laravel Sponsors
+```sh
+git clone https://github.com/saiful2030/ujian-online.git
+```
+masuk ke link https://github.com/settings/tokens 
+kemudian klik button `generate new token`.
+untuk `Note` silakan berikan nama token yang anda inginkan dan ini sifatnya bebas. Centang `repo`. Setelah itu klik button `generate Token`.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Langkah 3 : Clone repository dengan token
 
-### Premium Partners
+```sh
+git clone https://username-kamu:token-kamu@github.com/saiful2030/ujian-online.git
+```
+silakan ganti :
+1. `username-kamu` dengan username akun github
+2. `token-kamu` dengan token hasil generate di atas
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Langkah 4 : Konfigurasi Project
 
-## Contributing
+```sh
+cd ujian-online
+```
+```sh
+ls
+```
+```sh
+composer install
+```
+```sh
+Command 'composer' not found, but can be installed with:
+apt install composer
+```
+```sh
+apt install composer -y
+```
+```sh
+composer install
+```
+```sh
+cp .env.example .env
+```
+```sh
+php artisan key:generate
+```
+```sh
+sudo chown www-data: -R storage
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Langkah 5 : Membuat Database
 
-## Code of Conduct
+```sh
+mysql -u root -p
+```
+```sh
+mysql> CREATE DATABASE db_ujian_online;
+```
+```sh
+mysql> SHOW DATABASES;
+```
+```sh
+mysql> exit;
+```
+Langkah 6 : Konfigurasi Koneksi Database
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+silakan masuk ke dalam folder project kita yang di server, yang di direktorinya adalah `/var/www/html/ujian-online`
+```sh
+sudo nano .env
+```
+silakan ganti :
+1. `APP_ENV` menjadi `APP_ENV=production`
+2. `APP_DEBUD` menjadi `APP_DEBUG=false`
+3. `DB_DATABASE` menjadi `DB_DATABASE=db_ujian_online`
+4. `DB_PASSWORD` menjadi `sesuai password yang anda seting`
 
-## Security Vulnerabilities
+silakan simpan dengan `CTRL`+ `X` kemudian `Y` dan `ENTER`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```sh
+php artisan migrate
+```
+```sh
+php artisan db:seed --class=UserTableSeeder
+```
+Langkah 7 : Konfigurasi Vhodt Nginx
+
+```sh
+sudo nano /etc/nginx/sites-available/default
+```
+```sh
+root /var/www/html;
+```
+```sh
+root /var/www/html/ujian-online/public;
+```
+```sh
+try_files $uri $uri/ =404;
+```
+```sh
+try_files $uri $uri/ /index.php$is_args$args;
+```
+
+## Akun
+Username : admin@gmail.com
+Password : password
 
 ## License
 
